@@ -93,23 +93,25 @@
 
         <ImageView
             android:id="@+id/ivYou"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/tvVS"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@color/colorPrimaryDark"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/tvYou"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvVS"
+            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay" />
 
         <ImageView
             android:id="@+id/ivComputer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@color/colorPrimaryDark"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvVS"
             app:layout_constraintBottom_toTopOf="@id/tvComputer"
-            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay" />
 
         <TextView
             android:id="@+id/tvComputer"
@@ -130,6 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvVS"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
