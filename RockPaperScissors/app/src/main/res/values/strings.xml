@@ -19,4 +19,7 @@
     <string name="computer">Computer</string>
     <string name="you">You</string>
 
+    <string name="placeholder_result">Result</string>
+    <string name="placeholder_date">Date</string>
+
 </resources>

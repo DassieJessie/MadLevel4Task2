@@ -10,12 +10,13 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/welcome"
         android:textSize="18sp"
-        android:layout_marginTop="16dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvInstructions"
@@ -67,23 +68,27 @@
         app:layout_constraintBottom_toTopOf="@id/btnPaper">
 
         <TextView
-            android:id="@+id/tvResult"
+            android:id="@+id/tvResultGameplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/result_win"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/ivComputer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ivComputer"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvVS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vs"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
             app:layout_constraintStart_toEndOf="@id/ivComputer"
             app:layout_constraintEnd_toStartOf="@id/ivYou"
-            app:layout_constraintTop_toBottomOf="@id/tvResult"
+            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay"
             app:layout_constraintBottom_toTopOf="@id/tvComputer" />
 
         <ImageView
@@ -92,7 +97,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/tvVS"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvResult"
+            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay"
             app:layout_constraintBottom_toTopOf="@id/tvYou"
             tools:src="@tools:sample/avatars" />
 
@@ -103,7 +108,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvVS"
             app:layout_constraintBottom_toTopOf="@id/tvComputer"
-            app:layout_constraintTop_toBottomOf="@id/tvResult"
+            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay"
             tools:src="@tools:sample/avatars" />
 
         <TextView
