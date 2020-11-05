@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "gameTable")
 data class Game(
     @ColumnInfo(name = "player_hand")
     var gamePlayerHand : Int,
