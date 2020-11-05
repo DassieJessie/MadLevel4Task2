@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        supportActionBar?.title = "Rock Paper Scissors game"
-
         navController = findNavController(R.id.nav_host_fragment)
     }
 
@@ -60,11 +58,13 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in arrayOf(R.id.gameplayFragment)) {
 
+                toolbar.title = getString(R.string.gameplay_menu_title)
                 toolbar.menu.findItem(R.id.btnMenuHistory)?.isVisible = true
                 toolbar.menu.findItem(R.id.btnMenuDelete)?.isVisible = false
                 toolbar.menu.findItem(R.id.btnMenuBack)?.isVisible = false
             } else {
 
+                toolbar.title = getString(R.string.history_menu_title)
                 toolbar.menu.findItem(R.id.btnMenuHistory).isVisible = false
                 toolbar.menu.findItem(R.id.btnMenuDelete)?.isVisible = true
                 toolbar.menu.findItem(R.id.btnMenuBack)?.isVisible = true
