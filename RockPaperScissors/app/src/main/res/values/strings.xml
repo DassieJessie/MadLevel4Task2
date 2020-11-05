@@ -20,6 +20,9 @@
     <string name="computer">Computer</string>
     <string name="you">You</string>
 
+    <string name="choose_hand">Choose your fate</string>
+
+
     <!-- Item Fragment-->
     <string name="placeholder_result">Result</string>
     <string name="placeholder_date">Date</string>
@@ -32,5 +35,6 @@
     <!-- Gameplay Menu -->
     <string name="gameplay_menu_title">Rock Paper Scissors Game</string>
     <string name="delete_btn">Delete</string>
+
 
 </resources>

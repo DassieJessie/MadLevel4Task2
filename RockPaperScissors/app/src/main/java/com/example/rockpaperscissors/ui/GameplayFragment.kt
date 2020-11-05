@@ -5,12 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.example.rockpaperscissors.R
+import kotlinx.android.synthetic.main.fragment_gameplay.*
 
+    const val ROCK = 1
+    const val PAPER = 2
+    const val SCISSORS = 3
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class GameplayFragment : Fragment() {
+
+    private var playersHand : Int = ROCK
+    private lateinit var result : String
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -23,5 +31,119 @@ class GameplayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
+    }
+
+    private fun initView(){
+        restartGame()
+
+        btnRock.setOnClickListener{
+            showResults()
+            ivYou.setImageResource(R.drawable.rock)
+            playersHand = ROCK
+            playGame(playersHand)
+        }
+
+        btnPaper.setOnClickListener{
+            showResults()
+            ivYou.setImageResource(R.drawable.paper)
+            playersHand = PAPER
+            playGame(playersHand)
+        }
+
+        btnScissors.setOnClickListener{
+            showResults()
+            ivYou.setImageResource(R.drawable.scissors)
+            playersHand = SCISSORS
+            playGame(playersHand)
+        }
+
+        btnPlayAgain.setOnClickListener{
+            restartGame()
+        }
+    }
+
+    private fun playGame(player: Int){
+        var computer : Int = (1..3).random()
+        showComputersHand(computer)
+        calculateResult(player, computer)
+
+    }
+
+    private fun calculateResult(player : Int, computer : Int) {
+        var win : Boolean = false
+
+        when(player){
+            ROCK ->{
+                if(computer == PAPER){
+                    win = false
+                }
+                if(computer == SCISSORS){
+                    win = true
+                }
+            }
+            PAPER -> {
+                if(computer == SCISSORS){
+                    win = false
+                }
+                if(computer == ROCK){
+                    win = true
+                }
+            }
+            SCISSORS ->{
+                if(computer == PAPER){
+                    win = true
+                }
+
+                if(computer == ROCK){
+                    win = false
+                }
+            }
+        }
+
+        //lose
+        if(!win && computer != player){
+            tvResultGameplay.text = getString(R.string.result_lose)
+        }
+
+        //draw
+        if(computer == player){
+            tvResultGameplay.text = getString(R.string.result_draw)
+        }
+
+        //win
+        if(win){
+            tvResultGameplay.text = getString(R.string.result_win)
+        }
+    }
+
+    private fun showComputersHand(hand: Int){
+        when(hand){
+            1 -> ivComputer.setImageResource(R.drawable.rock)
+            2 -> ivComputer.setImageResource(R.drawable.paper)
+            3 -> ivComputer.setImageResource(R.drawable.scissors)
+        }
+    }
+
+    private fun showResults(){
+        clGameResult.isVisible = true
+        tvChooseText.isVisible = false
+
+        btnRock.isVisible = false
+        btnPaper.isVisible = false
+        btnScissors.isVisible = false
+
+        btnPlayAgain.isVisible = true
+    }
+
+    private fun restartGame(){
+        clGameResult.isVisible = false
+        tvChooseText.isVisible = true
+
+        btnRock.isVisible = true
+        btnPaper.isVisible = true
+        btnScissors.isVisible = true
+
+        btnPlayAgain.isVisible = false
     }
 }

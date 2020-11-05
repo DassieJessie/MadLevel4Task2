@@ -33,7 +33,7 @@
         android:layout_height="16dp"
         android:background="@color/colorPrimary"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@id/clGame"
+        app:layout_constraintBottom_toTopOf="@id/clGameResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvInstructions"
@@ -59,13 +59,14 @@
         app:layout_constraintTop_toBottomOf="@id/tvStatisticsTitle"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clGame"
+        android:id="@+id/clGameResult"
         android:layout_width="419dp"
         android:layout_height="247dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvStatistics"
-        app:layout_constraintBottom_toTopOf="@id/btnPaper">
+        app:layout_constraintVertical_bias="0.268">
 
         <TextView
             android:id="@+id/tvResultGameplay"
@@ -86,10 +87,10 @@
             android:text="@string/vs"
             android:textSize="30sp"
             android:textStyle="bold|italic"
-            app:layout_constraintStart_toEndOf="@id/ivComputer"
+            app:layout_constraintBottom_toTopOf="@id/tvComputer"
             app:layout_constraintEnd_toStartOf="@id/ivYou"
-            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay"
-            app:layout_constraintBottom_toTopOf="@id/tvComputer" />
+            app:layout_constraintStart_toEndOf="@id/ivComputer"
+            app:layout_constraintTop_toBottomOf="@id/tvResultGameplay" />
 
         <ImageView
             android:id="@+id/ivYou"
@@ -108,9 +109,9 @@
             android:layout_height="125dp"
             android:background="@color/colorPrimaryDark"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tvVS"
             app:layout_constraintBottom_toTopOf="@id/tvComputer"
+            app:layout_constraintEnd_toStartOf="@id/tvVS"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvResultGameplay" />
 
         <TextView
@@ -118,22 +119,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/computer"
-            app:layout_constraintTop_toBottomOf="@id/ivComputer"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvVS"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tvVS"/>
+            app:layout_constraintTop_toBottomOf="@id/ivComputer" />
 
         <TextView
             android:id="@+id/tvYou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/you"
-            app:layout_constraintTop_toBottomOf="@id/ivYou"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvVS"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvVS"
+            app:layout_constraintTop_toBottomOf="@id/ivYou" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvChooseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_hand"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnRock"
@@ -142,9 +156,9 @@
         android:background="@color/colorPrimary"
         android:src="@drawable/rock"
         android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clGame"
         app:layout_constraintEnd_toStartOf="@id/btnPaper"/>
 
     <ImageButton
@@ -154,8 +168,8 @@
         android:background="@color/colorPrimary"
         android:src="@drawable/paper"
         android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clGame"
         app:layout_constraintStart_toEndOf="@id/btnRock"
         app:layout_constraintEnd_toStartOf="@id/btnScissors"/>
 
@@ -166,9 +180,24 @@
         android:background="@color/colorPrimary"
         android:src="@drawable/scissors"
         android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnPaper"
-        app:layout_constraintTop_toBottomOf="@id/clGame"/>
+        app:layout_constraintStart_toEndOf="@id/btnPaper"/>
+
+    <Button
+        android:id="@+id/btnPlayAgain"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:background="@color/colorPrimary"
+        android:scaleType="centerCrop"
+        android:text="Play again"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
