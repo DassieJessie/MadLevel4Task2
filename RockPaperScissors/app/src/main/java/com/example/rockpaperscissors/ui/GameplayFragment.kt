@@ -7,7 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import com.example.rockpaperscissors.R
+import com.example.rockpaperscissors.model.Game
+import com.example.rockpaperscissors.repository.GameRepository
 import kotlinx.android.synthetic.main.fragment_gameplay.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.*
 
     const val ROCK = 1
     const val PAPER = 2
@@ -16,6 +23,9 @@ import kotlinx.android.synthetic.main.fragment_gameplay.*
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class GameplayFragment : Fragment() {
+
+    private lateinit var gameRepository: GameRepository
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     private var playersHand : Int = ROCK
     private lateinit var result : String
@@ -30,7 +40,7 @@ class GameplayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        gameRepository = GameRepository(requireContext())
         initView()
     }
 
@@ -68,6 +78,8 @@ class GameplayFragment : Fragment() {
         showComputersHand(computer)
         calculateResult(player, computer)
 
+        addGameToDatabase(player, computer)
+
     }
 
     private fun calculateResult(player : Int, computer : Int) {
@@ -104,16 +116,19 @@ class GameplayFragment : Fragment() {
         //lose
         if(!win && computer != player){
             tvResultGameplay.text = getString(R.string.result_lose)
+            this.result = getString(R.string.result_lose)
         }
 
         //draw
         if(computer == player){
             tvResultGameplay.text = getString(R.string.result_draw)
+            this.result = getString(R.string.result_draw)
         }
 
         //win
         if(win){
             tvResultGameplay.text = getString(R.string.result_win)
+            this.result = getString(R.string.result_win)
         }
     }
 
@@ -145,5 +160,23 @@ class GameplayFragment : Fragment() {
         btnScissors.isVisible = true
 
         btnPlayAgain.isVisible = false
+    }
+
+    private fun addGameToDatabase(player: Int, computer: Int){
+        mainScope.launch {
+            val date = Date().toString()
+
+            val game = Game(
+                player,
+                computer,
+                date,
+                result
+            )
+
+            withContext(Dispatchers.IO) {
+                gameRepository.insertGame(game)
+            }
+        }
+
     }
 }
