@@ -3,4 +3,20 @@
     <string name="action_settings">Settings</string>
 
     <!-- Strings used for fragments for navigation -->
+
+    <!-- Gameplay Fragment-->
+    <string name="welcome">Welcome</string>
+    <string name="instruction">Instructions: select rock, paper or scissors to play.</string>
+
+    <string name="statistics_title">Your all time statistics</string>
+    <string name="statistics">Wins: 8 Draws: 5 Lose: 10</string>
+
+    <string name="result_win">You win!</string>
+    <string name="result_lose">Computer wins!</string>
+    <string name="result_draw">Draw</string>
+
+    <string name="vs">V.S.</string>
+    <string name="computer">Computer</string>
+    <string name="you">You</string>
+
 </resources>

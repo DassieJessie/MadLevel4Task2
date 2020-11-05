@@ -4,4 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GameplayFragment"/>
+    tools:context=".ui.GameplayFragment">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+    <View
+        android:id="@+id/devider"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/clGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInstructions"
+        app:layout_constraintVertical_bias="0.046" />
+
+    <TextView
+        android:id="@+id/tvStatisticsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statistics_title"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/devider"/>
+
+    <TextView
+        android:id="@+id/tvStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatisticsTitle"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clGame"
+        android:layout_width="419dp"
+        android:layout_height="247dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatistics"
+        app:layout_constraintBottom_toTopOf="@id/btnPaper">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/result_win"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ivComputer"/>
+
+        <TextView
+            android:id="@+id/tvVS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vs"
+            app:layout_constraintStart_toEndOf="@id/ivComputer"
+            app:layout_constraintEnd_toStartOf="@id/ivYou"
+            app:layout_constraintTop_toBottomOf="@id/tvResult"
+            app:layout_constraintBottom_toTopOf="@id/tvComputer" />
+
+        <ImageView
+            android:id="@+id/ivYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvVS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvResult"
+            app:layout_constraintBottom_toTopOf="@id/tvYou"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/ivComputer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvVS"
+            app:layout_constraintBottom_toTopOf="@id/tvComputer"
+            app:layout_constraintTop_toBottomOf="@id/tvResult"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvComputer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/computer"
+            app:layout_constraintTop_toBottomOf="@id/ivComputer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvVS"/>
+
+        <TextView
+            android:id="@+id/tvYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/you"
+            app:layout_constraintTop_toBottomOf="@id/ivYou"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvVS"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/btnRock"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/rock"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clGame"
+        app:layout_constraintEnd_toStartOf="@id/btnPaper"/>
+
+    <ImageButton
+        android:id="@+id/btnPaper"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/paper"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clGame"
+        app:layout_constraintStart_toEndOf="@id/btnRock"
+        app:layout_constraintEnd_toStartOf="@id/btnScissors"/>
+
+    <ImageButton
+        android:id="@+id/btnScissors"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/scissors"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnPaper"
+        app:layout_constraintTop_toBottomOf="@id/clGame"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
