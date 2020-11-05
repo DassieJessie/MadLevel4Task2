@@ -6,5 +6,5 @@
         android:id="@+id/btnMenuHistory"
         android:icon="@drawable/ic_history_white_24dp"
         android:title="@string/action_settings"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

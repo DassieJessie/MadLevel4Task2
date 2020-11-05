@@ -26,10 +26,11 @@
 
     <!-- History Menu -->
     <string name="history_menu_title">Your Game History</string>
-    <string name="history_btn">Settings</string>
+    <string name="history_btn">History</string>
+    <string name="back_btn">Back</string>
 
     <!-- Gameplay Menu -->
     <string name="gameplay_menu_title">Rock Paper Scissors Game</string>
-    <string name="delete_btn">Settings</string>
+    <string name="delete_btn">Delete</string>
 
 </resources>

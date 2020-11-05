@@ -1,11 +1,11 @@
 package com.example.rockpaperscissors.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.rockpaperscissors.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -22,6 +22,25 @@ class GameHistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        inflater.inflate(R.menu.menu_game_history, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.btnMenuBack -> {
+                findNavController().navigate(
+                    R.id.action_gameHistoryFragment_to_gameplayFragment
+                )
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
