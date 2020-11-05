@@ -2,6 +2,7 @@
     <string name="app_name">RockPaperScissors</string>
     <string name="action_settings">Settings</string>
 
+
     <!-- Strings used for fragments for navigation -->
 
     <!-- Gameplay Fragment-->
@@ -19,7 +20,16 @@
     <string name="computer">Computer</string>
     <string name="you">You</string>
 
+    <!-- Item Fragment-->
     <string name="placeholder_result">Result</string>
     <string name="placeholder_date">Date</string>
+
+    <!-- History Menu -->
+    <string name="history_menu_title">Your Game History</string>
+    <string name="history_btn">Settings</string>
+
+    <!-- Gameplay Menu -->
+    <string name="gameplay_menu_title">Rock Paper Scissors Game</string>
+    <string name="delete_btn">Settings</string>
 
 </resources>
