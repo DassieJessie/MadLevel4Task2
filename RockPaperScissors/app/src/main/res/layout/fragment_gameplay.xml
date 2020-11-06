@@ -43,7 +43,6 @@
         android:id="@+id/tvStatisticsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/statistics_title"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +52,6 @@
         android:id="@+id/tvStatistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/statistics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvStatisticsTitle"/>

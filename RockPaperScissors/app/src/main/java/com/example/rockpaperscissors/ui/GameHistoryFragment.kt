@@ -49,10 +49,10 @@ class GameHistoryFragment : Fragment() {
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         rvGames.adapter = gameAdapter
 
-        rvGames.addItemDecoration(
-            DividerItemDecoration(context,
-                DividerItemDecoration.VERTICAL)
-        )
+//        rvGames.addItemDecoration(
+//            DividerItemDecoration(context,
+//                DividerItemDecoration.VERTICAL)
+//        )
     }
 
     private fun getGameList(){
